@@ -1,0 +1,13 @@
+[Unit]
+Description=service to start node web app and restart if it fails
+After=network-online.target
+
+[Service]
+User=tyler
+Group=tyler
+Type=notify
+ExecStart=/home/tyler/.volta/bin/node /home/tyler/2420-assign-two/src/index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

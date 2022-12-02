@@ -29,6 +29,13 @@ It's good practice to disable root ssh
 sudo vim /etc/ssh/sshd_config
 ```
 
+this will also be a good time to ensure that our droplets are updated we will run
+```
+sudo apt upgrade
+sudo apt update
+```
+continueing the prompts as neccessary
+
 ![image](/images/rootlog.png)
 
 set this to no if its yes and we can continue on to the next step!
@@ -117,7 +124,7 @@ We are going to write a service file using WSL that will start and restart our n
 
 ![images](/images/s7service.png)
 
-### Step 8 - The fun part!
+### Step 8 - The fun part! Testing and running
 
 Lets use sftp on wsl to connect to both droplets move all of these new files we have created and place them in their respective places, start them and test them.
 
@@ -142,3 +149,13 @@ systemctl start network.service
 systemctl enable network.service
 systemctl status network.service
 ```
+
+![images](/images/curlhtml.png)
+
+![images](/images/curlnode.png)
+
+### Testing our load balancer
+
+As you can see from the previous image, when we curl the load balancers ip address and /api we contacted one of our index.js apps and here you can see both from our droplets
+
+![images](/images/curltest.png)
