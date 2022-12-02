@@ -29,7 +29,7 @@ It's good practice to disable root ssh
 sudo vim /etc/ssh/sshd_config
 ```
 
-[image](/images/rootlog.png)
+![image](/images/rootlog.png)
 
 set this to no if its yes and we can continue on to the next step!
 
@@ -37,11 +37,11 @@ set this to no if its yes and we can continue on to the next step!
 
 On this step we are going to begin to prepare each droplet by installing caddy
 
-[image](/images/getcaddy.png)
+![image](/images/getcaddy.png)
 
 Here we recieve a file named caddy_2.6.2_linux_amd64.tar.gz and we will extract it
 
-[image](/images/tarcaddy.png)
+![image](/images/tarcaddy.png)
 
 and using the two commands 
 
@@ -56,11 +56,11 @@ This will move our caddy file to the bin directory and allow root to own caddy.
 
 We will start by making an html and src directory, and then create index.html
 
-[images](/images/indexhtml.png)
+![images](/images/indexhtml.png)
 
 We will fill index.html with the following
 
-[images](/images/html.png)
+![images](/images/html.png)
 
 For the last part of this step we have a few things to do to initiate our web app
 
@@ -77,13 +77,13 @@ npm init
 npm i fastify
 ```
 
-[image](/images/npminst.png)
+![image](/images/npminst.png)
 
-[image](/images/npmfast.png)
+![image](/images/npmfast.png)
 
 and then we can edit our index.js
 
-[image](/images/vimindexjs.png)
+![image](/images/vimindexjs.png)
 
 ### Step 5 - Lets create our Caddyfile and the caddy.service
 
@@ -91,11 +91,11 @@ Still using our wsl because we don't want to write these files twice and we can 
 
 Lets start with the Caddyfile
 
-[image](/images/cadfill.png)
+![image](/images/cadfill.png)
 
 and the caddy.service
 
-[image](/images/caddyserv.png)
+![image](/images/caddyserv.png)
 
 ### Step 6
 
@@ -107,7 +107,7 @@ ssh into your droplets using powershell
 ssh -i /path/to/ssh/key username@droplet_ip
 ```
 
-[images](images/volta2.png)
+![images](images/volta2.png)
 
 install volta and node
 
@@ -115,22 +115,22 @@ install volta and node
 
 We are going to write a service file using WSL that will start and restart our node application if the service fails.
 
-[images](/images/s7service.png)
+![images](/images/s7service.png)
 
 ### Step 8 - The fun part!
 
 Lets use sftp on wsl to connect to both droplets move all of these new files we have created and place them in their respective places, start them and test them.
 
 
-[images](/images/sftp1.png)
+![images](/images/sftp1.png)
 
-[images](/images/sftp2.png)
+![images](/images/sftp2.png)
 
-[images](/images/sftp3.png)
+![images](/images/sftp3.png)
 
 Great! We have moved all the neccessary files to one droplet, lets repeat this again for the other droplet and
 
-[images](/images/sftp4.png)
+![images](/images/sftp4.png)
 
 Okay! Let's test our .service files on both of our droplets
 ```
