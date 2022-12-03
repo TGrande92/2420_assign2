@@ -139,14 +139,16 @@ Great! We have moved all the neccessary files to one droplet, lets repeat this a
 
 ![images](/images/sftp4.png)
 
+![images](/images/sftp5.png)
+
 Okay! Let's test our .service files on both of our droplets
 ```
-systemctl start caddy.service
 systemctl enable caddy.service
+systemctl start caddy.service
 systemctl status caddy.service
 
-systemctl start network.service
 systemctl enable network.service
+systemctl start network.service
 systemctl status network.service
 ```
 
